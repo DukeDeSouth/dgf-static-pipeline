@@ -1,0 +1,22 @@
+{
+  "name": "dgf-static-pipeline",
+  "version": "1.0.0",
+  "description": "Static long-form video pipeline: 2D doodle shots + Ken Burns + FFmpeg (no I2V)",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "new-episode": "node -e \"const n=process.argv[1]; if(!n) throw new Error('usage: npm run new-episode -- 004-my-topic'); require('fs').cpSync('templates/episode','episodes/'+n,{recursive:true}); console.log('Created episodes/'+n)\"",
+    "doctor": "node -e \"const {execSync}=require('child_process'); for (const b of ['ffmpeg','ffprobe']) try{execSync(b+' -version',{stdio:'ignore'})}catch{console.error('Missing '+b)}\""
+  },
+  "dependencies": {
+    "@fal-ai/client": "^1.10.0",
+    "dotenv": "^17.4.2",
+    "googleapis": "^174.0.1",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}
